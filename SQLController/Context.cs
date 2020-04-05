@@ -6,10 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLConnection;
 
+/// <summary>
+/// The SQLController
+/// Connects to the SQL Connection to
+/// GetDataTable, Save tables, insert records and delete records
+/// </summary>
 namespace SQLController {
     public class Context {
         #region Global Variables
 
+        // Create a new instance of SQL
         static SQL _sql = new SQL();
 
         #endregion
@@ -60,14 +66,31 @@ namespace SQLController {
 
         #region Mutators
 
+        /// <summary>
+        ///  Save a table
+        /// </summary>
+        /// <param name="dtable">DataTable to save</param>
         public static void SaveDataBaseTable(DataTable dtable) {
             _sql.SaveDatabaseTable(dtable);
         }
 
+        /// <summary>
+        /// Insert a parent record to a table
+        /// </summary>
+        /// <param name="tableName">The table to insert into</param>
+        /// <param name="columnNames">Column names to insert</param>
+        /// <param name="columnValues">Column values that represent the column names</param>
+        /// <returns></returns>
         public static int InsertParentTable(string tableName, string columnNames, string columnValues) {
             return _sql.InsertParentRecord(tableName, columnNames, columnValues);
         }
 
+        /// <summary>
+        /// Delete a record from a table
+        /// </summary>
+        /// <param name="tableName">The table to delete from</param>
+        /// <param name="pkName">The name of the primary key</param>
+        /// <param name="pkID">The primary key value</param>
         public static void DeleteRecord(string tableName, string pkName, string pkID) {
             _sql.DeleteRecord(tableName, pkName, pkID);
         }
