@@ -75,7 +75,7 @@ namespace Rentals {
             // Check if a cell has been selected in the DataGridView
             // If not show a MessageBox and stop the method
             if (cboMovies.SelectedIndex == -1) {
-                MessageBox.Show("No movie has been selected!",
+                MessageBox.Show("No rentalitem has been selected!",
                     Properties.Settings.Default.ProjectName,
                     MessageBoxButtons.OK);
 
